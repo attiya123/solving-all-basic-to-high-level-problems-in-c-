@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+                      // Simple Bubble Sort
+void bubbleSort(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                                  // swap
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int nums[6] = {3, 1, 4, 2, 5, 1};
+    int size = 6;
+    bool hasDuplicate = false;
+
+                        // Step 1: Sort the array
+    bubbleSort(nums, size);
+
+                                 // Step 2: Check if any adjacent elements are equal
+    for (int i = 0; i < size - 1; i++) {
+        if (nums[i] == nums[i + 1]) {
+            hasDuplicate = true;
+            break;
+        }
+    }
+
+                                    // Output result
+    if (hasDuplicate) {
+        cout << "Yes, duplicate found." << endl;
+    } else {
+        cout << "No duplicates." << endl;
+    }
+
+    return 0;
+}
