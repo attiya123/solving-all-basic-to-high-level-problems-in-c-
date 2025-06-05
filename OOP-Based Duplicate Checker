@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+class DuplicateChecker {
+private:
+    int arr[100];                   // Fixed size array for simplicity
+    int size;
+
+public:
+                                 // Constructor to initialize array and size
+    DuplicateChecker(int inputArr[], int s) {
+        size = s;
+        for (int i = 0; i < size; i++) {
+            arr[i] = inputArr[i];
+        }
+    }
+
+                          // Method to check for duplicates
+    bool hasDuplicate() {
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (arr[i] == arr[j]) {
+                    return true;          // duplicate found
+                }
+            }
+        }
+        return false;      // no duplicates
+    }
+};
+
+int main() {
+    int numbers[] = {1, 2, 3, 4, 5, 2};
+    int n = sizeof(numbers) / sizeof(numbers[0]);
+
+                          // Create object of class and pass array
+    DuplicateChecker checker(numbers, n);
+
+                          // Call the method
+    if (checker.hasDuplicate()) {
+        cout << "Duplicate found!" << endl;
+    } else {
+        cout << "No duplicates." << endl;
+    }
+
+    return 0;
+}
