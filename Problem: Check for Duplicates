@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Sample input
+    int nums[6] = {1, 2, 3, 4, 5, 1};
+    int size = 6;
+    bool hasDuplicate = false;
+
+    // Compare every element with all others (nested loop)
+    for (int i = 0; i < size; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (nums[i] == nums[j]) {
+                hasDuplicate = true;
+                break; // duplicate found
+            }
+        }
+        if (hasDuplicate) {
+            break; // no need to check further
+        }
+    }
+
+                            // Output result
+    if (hasDuplicate) {
+        cout << "Yes, there is a duplicate." << endl;
+    } else {
+        cout << "No duplicates found." << endl;
+    }
+
+    return 0;
+}
